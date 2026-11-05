@@ -3,3 +3,107 @@
 
 /* The deliberately simple notice cards only display receipt metadata; they do not implement an ownership-claim workflow. */
 .handover-note{font-size:10px;line-height:1.45;color:#746e61;margin:2px 0 10px;padding-top:4px;}
+
+/* ---------------------------------------------------------------------------
+   UI/UX Rescue changes
+   --------------------------------------------------------------------------- */
+
+/* Visible keyboard focus everywhere */
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.status-options label:focus-within{outline:3px solid #2f6fd6;outline-offset:2px}
+
+/* Active board view in the header */
+.header-links button{padding:6px 2px;border-bottom:2px solid transparent}
+.header-links button[aria-current="page"]{color:#252c32;border-bottom-color:#252c32}
+
+/* Filters: honest live result count instead of a fake "Apply" */
+.filter-hint{margin:-10px 0 18px;font-size:11px;line-height:1.5;color:#7a766d}
+.filter-result{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#55534c;border-top:1px solid #eee8da;padding-top:14px}
+.filter-result button{border:1px solid #d6d5cd;background:#fff;border-radius:4px;padding:8px 11px;font-size:12px}
+.filter-result button:disabled{opacity:.45;cursor:default}
+.side-message p{font-size:12px;line-height:1.55;color:#6e5630}
+.reset{font-size:12px;color:#77716a}
+
+/* Legibility of notice cards (was 9-10px, low contrast) */
+.sticky{display:flex;flex-direction:column;min-height:0}
+.sticky-top{font-size:10px;color:#8f7a4e;align-items:center}
+.sticky p{font-size:12.5px;color:#5f584e;min-height:0}
+.sticky h3{font-size:16px}
+.sticky-bottom{font-size:11px;color:#6f634e}
+.column-head strong{font-size:13px}
+.column-head small{font-size:11px;color:#86827a}
+.sticky-emoji{font-size:34px;margin:10px 0 6px}
+.sticky.mine{box-shadow:3px 5px 0 #d8d0bc55,inset 4px 0 0 #262c30}
+.mine-tag{background:#262c30;color:#fff;border-radius:10px;padding:3px 8px;letter-spacing:.04em;font-size:9.5px}
+
+/* Where the item is / what to do next */
+.handover-note{display:flex;flex-direction:column;gap:3px;font-size:11.5px;line-height:1.45;margin:0 0 12px;padding:9px 10px;border-radius:5px;border:1px solid transparent}
+.handover-note strong{font-size:12px}
+.handover-note.held{background:#e3f3ea;border-color:#b9dcc8;color:#2c5a43}
+.handover-note.pending{background:#fff3dc;border-color:#ecd29c;color:#76571b}
+.handover-note.done{background:#e8edf7;border-color:#cbd5ea;color:#3d4c6c}
+
+/* Card actions replace the hidden "···" menu */
+.card-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.edit-button{margin-left:auto;border:1px solid #262c30;background:#fff;border-radius:4px;padding:6px 12px;font-size:12px;font-weight:700}
+.match-link,.inline-link{border:0;background:none;padding:0;color:#1f5fc4;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-align:left}
+.message{font-size:13px;align-items:center;gap:10px}
+.message .inline-link{font-size:13px}
+
+/* Match view banner and empty state */
+.match-banner{display:flex;justify-content:space-between;align-items:center;gap:15px;background:#eaf1fc;border:1px solid #c4d5f1;border-radius:7px;padding:14px 16px;margin-bottom:18px}
+.match-banner strong{display:block;font-size:14px;margin-bottom:4px}
+.match-banner span{font-size:12px;color:#4f5d75}
+.match-banner button{border:1px solid #9fb6de;background:#fff;border-radius:4px;padding:8px 12px;font-size:12px;white-space:nowrap}
+.empty-state{border:1px dashed #cfc5ab;border-radius:8px;padding:36px 24px;text-align:center;background:#fffdf6}
+.empty-state strong{font-size:16px}
+.empty-state p{font-size:13px;color:#77705f;max-width:460px;margin:10px auto 20px;line-height:1.55}
+.empty-state div{display:flex;gap:10px;justify-content:center}
+.empty-state div button:first-child{border:1px solid #d6d5cd;background:#fff;border-radius:5px;padding:11px 16px;font-size:12px}
+.empty-column{font-size:12px;color:#8f8470}
+.board-grid.cols-1{grid-template-columns:1fr}
+.board-grid.cols-1 .sticky-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.board-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Report form */
+.required-note{margin:6px 0 0;font-size:11px!important;letter-spacing:0!important;color:#77716a!important}
+.required-note b{color:#b0704b}
+.form-paper label{font-size:13px}
+.form-paper input,.form-paper select,.form-paper textarea{font-size:13px}
+.form-paper .hint{font-weight:400;font-size:11.5px;color:#7a766d;line-height:1.45}
+.optional{font-weight:400;color:#8a857a}
+.label-text{display:block}
+.form-paper [aria-invalid="true"]{border-color:#ba523e;background:#fffafa;box-shadow:0 0 0 1px #ba523e}
+.field-error{margin:0;font-size:12px;font-weight:700;color:#a8402c}
+.field-error::before{content:"⚠ "}
+.dup-help{font-weight:400;font-size:12px;line-height:1.5;color:#5d574c;background:#fbf5e6;border-radius:4px;padding:9px 10px}
+.status-choice{border:0;padding:0;margin:0 0 22px}
+.status-choice legend{font-size:13px;font-weight:700;color:#4d504c;margin-bottom:9px;padding:0}
+.status-choice legend b{color:#b0704b}
+.status-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:6px}
+.status-options label{flex-direction:row!important;align-items:flex-start;gap:9px!important;margin:0!important;border:1px solid #d7d7cd;border-radius:6px;padding:11px;cursor:pointer;background:#fff}
+.status-options label.selected{border-color:#262c30;box-shadow:0 0 0 1px #262c30;background:#fffbea}
+.status-options input{position:absolute;opacity:0;width:1px;height:1px}
+.status-options .col-icon{flex:none;width:24px;height:24px;font-size:12px}
+.status-options strong{display:block;font-size:12.5px}
+.status-options small{display:block;font-weight:400;font-size:11px;color:#7a766d;margin-top:3px;line-height:1.4}
+.status-choice.invalid .status-options label{border-color:#ba523e}
+.collection-box{display:flex;flex-direction:column;gap:6px;background:#eef6f1;border:1px solid #bfdccb;border-radius:6px;padding:14px;margin:0 0 19px;font-size:12.5px;color:#2f5a44}
+.collection-box>span{line-height:1.5}
+.collection-box label{margin:8px 0 0!important}
+.collection-box.confirmed{background:#e8edf7;border-color:#cbd5ea;color:#3d4c6c}
+.form-error{font-size:13px}
+.form-error ul{margin:8px 0 0;padding-left:18px}
+.form-error li button{border:0;background:none;padding:2px 0;color:#a8402c;text-decoration:underline;text-align:left;font-size:13px}
+.form-actions>button:first-child{font-size:13px}
+.paper-note strong{color:#5f5440}
+
+@media(max-width:750px){
+ .status-options{grid-template-columns:1fr}
+ .match-banner{flex-direction:column;align-items:flex-start}
+ .board-grid.cols-2{grid-template-columns:1fr}
+ .side-message{display:block}
+}
+paper select,.form-paper textarea{border:1px solid #d7d7cd;border-radius:3px;background:#fff;padding:12px;color:#525554;font-size:12px;max-width:100%}.form-actions{display:flex;justify-content:flex-end;gap:10px;padding-top:18px;border-top:1px solid #eee7d9}.form-actions>button:first-child{border:1px solid #d9d6ca;border-radius:4px;background:#fff;padding:11px 14px;font-size:12px}.form-error{background:#fff0ee;color:#ba523e;border-left:3px solid #ba523e;padding:12px;margin-bottom:13px;font-size:12px}.pagefooter{display:flex;justify-content:space-between;padding:30px 4%;background:#eae6dc;color:#a49e94;font-size:11px}.pagefooter span:first-child{font-weight:800;color:#79766c}@media(max-width:1130px){.board-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace{gap:18px}.header-links{gap:7px}.headline{min-width:210px}}@media(max-width:750px){.header{padding:15px;flex-wrap:wrap;gap:10px}.headline{min-width:140px}.header-links{order:3;width:100%;justify-content:space-between}.header-links button{font-size:10px}.report-button{padding:11px}.ruleline span:last-child{display:none}.workspace{display:block;padding:20px}.filters{position:static}.filters h1{font-size:27px}.filterbox{margin:20px 0}.side-message{display:none}.board{margin-top:28px}.board-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.report-layout{display:block}.report-intro{padding-top:0}.report-intro h1{font-size:32px}.paper-note{display:none}.form-paper{padding:20px}}@media(max-width:475px){.board-grid{grid-template-columns:1fr}.sticky{min-height:auto}.column-head{margin-top:16px}}
+
+/* The deliberately simple notice cards only display receipt metadata; they do not implement an ownership-claim workflow. */
+.handover-note{font-size:10px;line-height:1.45;color:#746e61;margin:2px 0 10px;padding-top:4px;}
